@@ -15,7 +15,7 @@
     $.get('https://api.github.com/repos/xuqingkai/sucai/contents',function(list){
       for(var i in list){
         if(list[i].type=='dir'){
-          $('#dir').append('<a href="#'+list[i].name+'">'+list[i].name+'</a>');
+          $('#dir').append('<a href="#'+list[i].name+'">'+list[i].name+'</a> / ');
         }else{
           var ext=list[i].name.substr(list[i].name.lastIndexOf('.') + 1);
           if(ext=='jpg' || ext=='png' || ext=='gif' || ext=='svg' || ext=='ico'){}
