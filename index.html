@@ -38,7 +38,7 @@
 			
 			}
 			var lightbox = UIkit.lightbox('#file');
-			$('#body').on('mousewheel', 'uk-lightbox', function(event) {
+			$('body').on('mousewheel', '.uk-lightbox', function(event) {
 				console.log(event.deltaX, event.deltaY, event.deltaFactor);
 				lightbox.show(event.deltaY > 0 ? 'previous' : 'next');
 			});
