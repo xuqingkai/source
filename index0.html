@@ -13,7 +13,8 @@
 <body>
 <script>
 	$(function(){
-		$.get('https://api.github.com/repos/xuqingkai/sucai/contents/' + window.location.search.replace('?',''),function(list){
+		var url='https://api.github.com/repos/'+window.location.host.substr(0, window.location.host.indexOf('.'))+window.location.pathname+'contents/'+window.location.search.replace('?','');
+		$.get(url,function(list){
 			for(var i in list){
 	  			if(list[i].type=='dir'){
 					if(i==0){
