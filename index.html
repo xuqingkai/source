@@ -47,10 +47,8 @@
 			lightbox.show(event.deltaY > 0 ? 'previous' : 'next');
 		});
 	}
-	var search=window.location.search.replace('?','');
-	if(search){}
 	var script = document.createElement('script');
-	script.src='https://api.github.com/repos/'+window.location.host.substr(0, window.location.host.indexOf('.'))+window.location.pathname+'contents/'+search+'?callback=cb';
+	script.src='https://api.github.com/repos/'+window.location.host.substr(0, window.location.host.indexOf('.'))+window.location.pathname+'contents/'+window.location.search.replace('?','')+'?callback=cb';
 	
 	document.getElementsByTagName('head')[0].appendChild(script);
 </script>
