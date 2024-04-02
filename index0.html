@@ -15,14 +15,14 @@
 	$(function(){
 		var url='https://api.github.com/repos/'+window.location.host.substr(0, window.location.host.indexOf('.'))+window.location.pathname+'contents/'+window.location.search.replace('?','');
 		$.get(url,function(list){
+			var parents='';
 			for(var i in list){
 	  			if(list[i].type=='dir'){
-					if(i==0){
-						var queryString='';
+					if(parents==''){
 						var path=list[i].path.split('/');
 		  				for(var j=0; j<path.length; j++){
-		  					queryString+='/'+path[j];
-							$('#dir').append(' / <a href="?'+queryString.substr(1)+'">'+path[j]+'</a>');
+		  					parents+='/'+path[j];
+							$('#dir').append(' / <a href="?'+parents.substr(1)+'">'+path[j]+'</a>');
 		  				}
 					}else{
 						$('#dir').append(' | <a href="?'+list[i].path+'">'+list[i].name+'</a>');
