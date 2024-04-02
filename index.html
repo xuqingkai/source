@@ -42,15 +42,13 @@
 			for(var i in lightbox){
 				window.alert(i + ':' + lightbox[i]);
 			}
+			var index=0;
 			//var slideshow = UIkit.slideshow('.uk-lightbox');//index prevIndex percent getIndex() maxIndex
-			document.getElementById('.uk-lightbox').onmousewheel=function (event) {
+			document.getElementById('body').onmousewheel=function (event) {
 				event = event || window.event;
 				var direction = event.wheelDelta && (event.wheelDelta > 0 ? -1 : 1);
-				if((direction<0 && lightbox.index>0) || (direction>0 && lightbox.index<lightbox.length-1)){
-					event.preventDefault();
-					if(direction<0){UIkit.scroll('#scroll-to-top').scrollTo('body');}
-					lightbox.show((lightbox.index + direction) % lightbox.length);
-				}
+				event.preventDefault();
+				lightbox.show(index++);
 	
 				
 			};
