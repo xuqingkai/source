@@ -40,19 +40,16 @@
 			}
 			var lightbox = UIkit.lightbox('#file');
 
-			var index=0;
-			//var slideshow = UIkit.slideshow('.uk-lightbox');//index prevIndex percent getIndex() maxIndex
+			var lightbox = UIkit.lightbox('#file');
+		
 			document.getElementsByTagName('body')[0].onmousewheel=function (event) {
-				event = event || window.event;
-				var direction = event.wheelDelta && (event.wheelDelta > 0 ? -1 : 1);
-				event.preventDefault();
-				lightbox.show(index++);
-			};
-			window.setTimeout(function(){
-				for(var i in lightbox){
-					window.alert(i + ':' + lightbox[i]);
+				if($('.uk-lightbox')){
+					event = event || window.event;
+					var direction = event.wheelDelta && (event.wheelDelta > 0 ? 'previous' : 'next');
+					event.preventDefault();
+					lightbox.show(direction);
 				}
-			},10000);
+			};
 		});
 	});
 
