@@ -38,15 +38,18 @@
 				}
 			
 			}
-			UIkit.lightbox('#file');
-			var slideshow = UIkit.slideshow('#file');//index prevIndex percent getIndex() maxIndex
-			document.getElementById('file').onmousewheel=function (event) {
+			var lightbox = UIkit.lightbox('#file');
+			for(var i in lightbox){
+				window.alert(i + ':' + lightbox[i]);
+			}
+			//var slideshow = UIkit.slideshow('.uk-lightbox');//index prevIndex percent getIndex() maxIndex
+			document.getElementById('.uk-lightbox').onmousewheel=function (event) {
 				event = event || window.event;
 				var direction = event.wheelDelta && (event.wheelDelta > 0 ? -1 : 1);
-				if((direction<0 && slideshow.index>0) || (direction>0 && slideshow.index<slideshow.length-1)){
+				if((direction<0 && lightbox.index>0) || (direction>0 && lightbox.index<lightbox.length-1)){
 					event.preventDefault();
 					if(direction<0){UIkit.scroll('#scroll-to-top').scrollTo('body');}
-					slideshow.show((slideshow.index + direction) % slideshow.length);
+					lightbox.show((lightbox.index + direction) % lightbox.length);
 				}
 	
 				
