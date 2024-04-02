@@ -40,15 +40,17 @@
 			}
 			UIkit.lightbox('#file');
 			var slideshow = UIkit.slideshow('#file');//index prevIndex percent getIndex() maxIndex
-			//const {$, attr, on } = UIkit.util;
-			UIkit.util.$('#slideshow').mousewheel(function(event){
+			document.getElementById('file').onmousewheel=function (event) {
+				event = event || window.event;
 				var direction = event.wheelDelta && (event.wheelDelta > 0 ? -1 : 1);
 				if((direction<0 && slideshow.index>0) || (direction>0 && slideshow.index<slideshow.length-1)){
 					event.preventDefault();
 					if(direction<0){UIkit.scroll('#js-scroll-trigger').scrollTo('body');}
 					slideshow.show((slideshow.index + direction) % slideshow.length);
 				}
-			});
+	
+				
+			};
 		});
 	});
 
