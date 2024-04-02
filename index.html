@@ -27,17 +27,28 @@
 					}
 					
 	  			}else{
-	  			  var ext=list[i].name.substr(list[i].name.lastIndexOf('.') + 1);
-	  			  if(ext=='jpg' || ext=='png' || ext=='gif' || ext=='webp' || ext=='svg' || ext=='ico'){
-	    				$('#file').append('<div><a href="'+list[i].path+'"><img src="'+list[i].path+'" alt=""/></a></div>');
-	    				$('#file').append('<div><a href="'+list[i].path+'"><img src="'+list[i].path+'" alt=""/></a></div>');
-	    				$('#file').append('<div><a href="'+list[i].path+'"><img src="'+list[i].path+'" alt=""/></a></div>');
-	  			  }else if(ext=='mp4' || ext=='webm'){
-	  			  
-	  			  }
+	  				var ext=list[i].name.substr(list[i].name.lastIndexOf('.') + 1);
+	  				if(ext=='jpg' || ext=='png' || ext=='gif' || ext=='webp' || ext=='svg' || ext=='ico'){
+		    				$('#file').append('<div><a href="'+list[i].path+'"><img src="'+list[i].path+'" alt=""/></a></div>');
+		    				$('#file').append('<div><a href="'+list[i].path+'"><img src="'+list[i].path+'" alt=""/></a></div>');
+		    				$('#file').append('<div><a href="'+list[i].path+'"><img src="'+list[i].path+'" alt=""/></a></div>');
+		  			}else if(ext=='mp4' || ext=='webm'){
+		  			  
+		  			}
+				}
+			
 			}
 			UIkit.lightbox('#file');
-		  }
+			var slideshow = UIkit.slideshow('#file');//index prevIndex percent getIndex() maxIndex
+			//const {$, attr, on } = UIkit.util;
+			UIkit.util.$('#slideshow').mousewheel(function(event){
+				var direction = event.wheelDelta && (event.wheelDelta > 0 ? -1 : 1);
+				if((direction<0 && slideshow.index>0) || (direction>0 && slideshow.index<slideshow.length-1)){
+					event.preventDefault();
+					if(direction<0){UIkit.scroll('#js-scroll-trigger').scrollTo('body');}
+					slideshow.show((slideshow.index + direction) % slideshow.length);
+				}
+			});
 		});
 	});
 
