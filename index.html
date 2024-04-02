@@ -18,8 +18,9 @@
           $('#dir').append('<a href="#'+list[i].name+'">'+list[i].name+'</a> / ');
         }else{
           var ext=list[i].name.substr(list[i].name.lastIndexOf('.') + 1);
-          if(ext=='jpg' || ext=='png' || ext=='gif' || ext=='svg' || ext=='ico'){}
-          $('#file').append('<div><img src="'+list[i].name+'" alt=""/></div>');
+          if(ext=='jpg' || ext=='png' || ext=='gif' || ext=='svg' || ext=='ico'){
+            $('#file').append('<div><img src="'+list[i].name+'" alt=""/></div>');
+          }
         }
       }
     });
