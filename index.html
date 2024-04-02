@@ -29,11 +29,9 @@
 	  			}else{
 	  				var ext=list[i].name.substr(list[i].name.lastIndexOf('.') + 1);
 	  				if(ext=='jpg' || ext=='png' || ext=='gif' || ext=='webp' || ext=='svg' || ext=='ico'){
-		    				$('#file').append('<div><a href="'+list[i].path+'" data-type="image"><img src="'+list[i].path+'" alt=""/></a></div>');
-		    				$('#file').append('<div><a href="'+list[i].path+'" data-type="image"><img src="'+list[i].path+'" alt=""/></a></div>');
-		    				$('#file').append('<div><a href="'+list[i].path+'" data-type="image"><img src="'+list[i].path+'" alt=""/></a></div>');
+		    				$('#file').append('<div><a href="'+list[i].path+'" data-type="image" data-caption="'+list[i].name+'"><img src="'+list[i].path+'" alt=""/></a></div>');
 		  			}else if(ext=='mp4' || ext=='webm'){
-		  				$('#file').append('<div><a href="'+list[i].path+'" data-type="video"><img src="'+list[i].path+'" alt=""/></a></div>');
+		  				$('#file').append('<div><a href="'+list[i].path+'" data-type="video" data-caption="'+list[i].name+'"><img src="'+list[i].path+'" alt=""/></a></div>');
 		  			}
 				}
 			
