@@ -42,7 +42,7 @@
 
 			var index=0;
 			//var slideshow = UIkit.slideshow('.uk-lightbox');//index prevIndex percent getIndex() maxIndex
-			document.getElementById('body').onmousewheel=function (event) {
+			document.getElementsByTagName('body')[0].onmousewheel=function (event) {
 				event = event || window.event;
 				var direction = event.wheelDelta && (event.wheelDelta > 0 ? -1 : 1);
 				event.preventDefault();
