@@ -42,16 +42,6 @@
 				console.log(event.deltaX, event.deltaY, event.deltaFactor);
 				lightbox.show(event.deltaY > 0 ? 'previous' : 'next');
 			});
-			document.getElementsByTagName('body1')[0].onmousewheel=function (event) {
-				if($('.uk-lightbox')){
-					event = event || window.event;
-					var direction = event.wheelDelta && (event.wheelDelta > 0 ? 'previous' : 'next');
-					event.preventDefault();
-					lightbox.show(direction);
-				}else{
-					alert(1);
-				}
-			};
 		});
 	});
 
