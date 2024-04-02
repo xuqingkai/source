@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-  <title>素材</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/css/uikit.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit-icons.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>视觉素材</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/css/uikit.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit-icons.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="./jquery.mousewheel.min.js"></script>
 </head>
 <body>
 <script>
@@ -37,8 +38,11 @@
 			
 			}
 			var lightbox = UIkit.lightbox('#file');
-			alert(document.getElementsByTagName('body')[0]);
-			document.getElementsByTagName('body')[0].onmousewheel=function (event) {
+			$('#body').on('mousewheel', 'uk-lightbox', function(event) {
+				console.log(event.deltaX, event.deltaY, event.deltaFactor);
+				lightbox.show(event.deltaY > 0 ? 'previous' : 'next');
+			});
+			document.getElementsByTagName('body1')[0].onmousewheel=function (event) {
 				if($('.uk-lightbox')){
 					event = event || window.event;
 					var direction = event.wheelDelta && (event.wheelDelta > 0 ? 'previous' : 'next');
