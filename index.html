@@ -45,7 +45,7 @@
 				var direction = event.wheelDelta && (event.wheelDelta > 0 ? -1 : 1);
 				if((direction<0 && slideshow.index>0) || (direction>0 && slideshow.index<slideshow.length-1)){
 					event.preventDefault();
-					if(direction<0){UIkit.scroll('#js-scroll-trigger').scrollTo('body');}
+					if(direction<0){UIkit.scroll('#scroll-to-top').scrollTo('body');}
 					slideshow.show((slideshow.index + direction) % slideshow.length);
 				}
 	
@@ -58,5 +58,6 @@
 </script>
 <div id="dir"><a href="?">首页</a></div>
 <div id="file" class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-5@l" uk-grid="parallax: 200"></div>
+<div id="scroll-to-top" uk-scroll></div>
 </body>
 </html>
